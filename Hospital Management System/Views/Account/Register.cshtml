@@ -1,0 +1,155 @@
+﻿@model HospitalManagementSystem.Models.ViewModels.RegisterViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Sign Up";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Hospital Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <style>
+            body {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+                font-family: 'Segoe UI', sans-serif;
+            }
+
+            .auth-card {
+                background: #fff;
+                border-radius: 18px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                max-width: 900px;
+                width: 100%;
+            }
+
+            .auth-side {
+                background: linear-gradient(160deg, #1e3c72 0%, #2a5298 100%);
+                color: #fff;
+                padding: 50px 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+            }
+
+                .auth-side h1 {
+                    font-size: 2rem;
+                    font-weight: 700;
+                }
+
+                .auth-side .icon {
+                    margin-bottom: 20px;
+                    background: #fff;
+                    border-radius: 14px;
+                    padding: 10px 16px;
+                    display: inline-block;
+                    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+                }
+
+                    .auth-side .icon img {
+                        max-width: 160px;
+                        height: auto;
+                        display: block;
+                    }
+
+            .form-side {
+                padding: 50px 45px;
+            }
+
+            .form-control:focus {
+                border-color: #0d6efd;
+                box-shadow: 0 0 0 0.2rem rgba(13,110,253,.15);
+            }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #0d6efd, #0a58ca);
+                border: none;
+                padding: 10px;
+                font-weight: 600;
+            }
+
+                .btn-primary:hover {
+                    background: linear-gradient(135deg, #0a58ca, #084298);
+                }
+
+            a.link {
+                color: #0d6efd;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                a.link:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class="auth-card">
+        <div class="row g-0">
+            <div class="col-md-5">
+                <div class="auth-side">
+                    <div class="icon">
+                        <img src="~/images/HMSlogo.jpeg" alt="Hospital Management System Logo" />
+                    </div>
+                    <h1>Hospital Management System</h1>
+                    <p class="mt-2 opacity-75">Create your account and start managing your hospital operations efficiently.</p>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="form-side">
+                    <h2 class="mb-1 fw-bold">Create Account</h2>
+                    <p class="text-muted mb-4">Sign up to get started</p>
+
+                    <form asp-controller="Account" asp-action="Register" method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-2"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label">Full Name</label>
+                            <input asp-for="FullName" class="form-control" placeholder="Your full name" autofocus />
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email Address</label>
+                            <input asp-for="Email" class="form-control" placeholder="you@example.com" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" class="form-control" placeholder="At least 6 characters" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Re-enter password" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
+
+                        <p class="text-center mb-0">
+                            Already have an account?
+                            <a asp-controller="Account" asp-action="Login" class="link">Sign In</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

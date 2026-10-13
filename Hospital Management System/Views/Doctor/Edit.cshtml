@@ -1,0 +1,60 @@
+﻿@model HospitalManagementSystem.Models.Doctor
+
+@{
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<h2>Edit Doctor</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="DoctorId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Specialization"></label>
+        <input asp-for="Specialization" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Qualification"></label>
+        <input asp-for="Qualification" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExperienceYears"></label>
+        <input asp-for="ExperienceYears" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConsultationFee"></label>
+        <input asp-for="ConsultationFee" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JoiningDate"></label>
+        <input asp-for="JoiningDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-check">
+        <input asp-for="IsAvailable" class="form-check-input" />
+        <label asp-for="IsAvailable" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

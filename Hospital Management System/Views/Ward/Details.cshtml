@@ -1,0 +1,29 @@
+﻿@model HospitalManagementSystem.Models.Ward
+
+@{
+    ViewData["Title"] = "Ward Details";
+}
+
+<h2>Ward Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Ward Name</dt>
+        <dd class="col-sm-9">@Model.WardName</dd>
+
+        <dt class="col-sm-3">Ward Type</dt>
+        <dd class="col-sm-9">@Model.WardType</dd>
+
+        <dt class="col-sm-3">Total Beds</dt>
+        <dd class="col-sm-9">@Model.TotalBeds</dd>
+
+        <dt class="col-sm-3">Available Beds</dt>
+        <dd class="col-sm-9">@Model.AvailableBeds</dd>
+
+        <dt class="col-sm-3">Floor Number</dt>
+        <dd class="col-sm-9">@Model.FloorNumber</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.WardId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

@@ -1,0 +1,56 @@
+﻿@model HospitalManagementSystem.Models.AuditLog
+
+@{
+    ViewData["Title"] = "Edit Audit Log";
+}
+
+<h2>Edit Audit Log</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="AuditLogId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="UserId"></label>
+        <input asp-for="UserId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ActionType"></label>
+        <select asp-for="ActionType" class="form-control">
+            <option value="Create">Create</option>
+            <option value="Update">Update</option>
+            <option value="Delete">Delete</option>
+            <option value="Login">Login</option>
+            <option value="Logout">Logout</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EntityName"></label>
+        <input asp-for="EntityName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EntityId"></label>
+        <input asp-for="EntityId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Details"></label>
+        <textarea asp-for="Details" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IPAddress"></label>
+        <input asp-for="IPAddress" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

@@ -1,0 +1,44 @@
+﻿@model HospitalManagementSystem.Models.Payroll
+
+@{
+    ViewData["Title"] = "Payroll Details";
+}
+
+<h2>Payroll Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Employee ID</dt>
+        <dd class="col-sm-9">@Model.EmployeeId</dd>
+
+        <dt class="col-sm-3">Employee Type</dt>
+        <dd class="col-sm-9">@Model.EmployeeType</dd>
+
+        <dt class="col-sm-3">Pay Month</dt>
+        <dd class="col-sm-9">@Model.PayMonth</dd>
+
+        <dt class="col-sm-3">Basic Salary</dt>
+        <dd class="col-sm-9">@Model.BasicSalary</dd>
+
+        <dt class="col-sm-3">Allowances</dt>
+        <dd class="col-sm-9">@Model.Allowances</dd>
+
+        <dt class="col-sm-3">Deductions</dt>
+        <dd class="col-sm-9">@Model.Deductions</dd>
+
+        <dt class="col-sm-3">Bonus</dt>
+        <dd class="col-sm-9">@Model.Bonus</dd>
+
+        <dt class="col-sm-3">Net Salary</dt>
+        <dd class="col-sm-9">@Model.NetSalary</dd>
+
+        <dt class="col-sm-3">Payment Date</dt>
+        <dd class="col-sm-9">@Model.PaymentDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Status</dt>
+        <dd class="col-sm-9">@Model.Status</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.PayrollId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

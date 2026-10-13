@@ -1,0 +1,73 @@
+﻿@model HospitalManagementSystem.Models.Billing
+
+@{
+    ViewData["Title"] = "Edit Bill";
+}
+
+<h2>Edit Bill</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="BillId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BillDate"></label>
+        <input asp-for="BillDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConsultationCharges"></label>
+        <input asp-for="ConsultationCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomCharges"></label>
+        <input asp-for="RoomCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicineCharges"></label>
+        <input asp-for="MedicineCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LabCharges"></label>
+        <input asp-for="LabCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="OtherCharges"></label>
+        <input asp-for="OtherCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AmountPaid"></label>
+        <input asp-for="AmountPaid" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentStatus"></label>
+        <select asp-for="PaymentStatus" class="form-control">
+            <option value="Pending">Pending</option>
+            <option value="Partially Paid">Partially Paid</option>
+            <option value="Paid">Paid</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentMethod"></label>
+        <select asp-for="PaymentMethod" class="form-control">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+            <option value="Insurance">Insurance</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

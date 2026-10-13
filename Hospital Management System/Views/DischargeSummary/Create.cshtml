@@ -1,0 +1,59 @@
+﻿@model HospitalManagementSystem.Models.DischargeSummary
+
+@{
+    ViewData["Title"] = "Create Discharge Summary";
+}
+
+<h2>Create Discharge Summary</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="IPDId"></label>
+        <input asp-for="IPDId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <input asp-for="DoctorId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DischargeDate"></label>
+        <input asp-for="DischargeDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DiagnosisSummary"></label>
+        <textarea asp-for="DiagnosisSummary" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TreatmentGiven"></label>
+        <textarea asp-for="TreatmentGiven" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FollowUpInstructions"></label>
+        <textarea asp-for="FollowUpInstructions" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DischargeMedications"></label>
+        <textarea asp-for="DischargeMedications" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConditionOnDischarge"></label>
+        <input asp-for="ConditionOnDischarge" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

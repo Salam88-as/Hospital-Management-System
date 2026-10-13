@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.Inventory
+
+@{
+    ViewData["Title"] = "Inventory Item Details";
+}
+
+<h2>Inventory Item Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Item Name</dt>
+        <dd class="col-sm-9">@Model.ItemName</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+
+        <dt class="col-sm-3">Quantity In Stock</dt>
+        <dd class="col-sm-9">@Model.QuantityInStock</dd>
+
+        <dt class="col-sm-3">Reorder Level</dt>
+        <dd class="col-sm-9">@Model.ReorderLevel</dd>
+
+        <dt class="col-sm-3">Supplier Name</dt>
+        <dd class="col-sm-9">@Model.SupplierName</dd>
+
+        <dt class="col-sm-3">Unit Cost</dt>
+        <dd class="col-sm-9">@Model.UnitCost</dd>
+
+        <dt class="col-sm-3">Last Restocked</dt>
+        <dd class="col-sm-9">@Model.LastRestockedDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Storage Location</dt>
+        <dd class="col-sm-9">@Model.StorageLocation</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.InventoryId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

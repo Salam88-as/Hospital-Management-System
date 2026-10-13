@@ -1,0 +1,326 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<style>
+    :root {
+        --ink: #0F2A43;
+        --teal: #0E7C7B;
+        --teal-dark: #0A5F5E;
+        --mint: #EAF7F5;
+        --amber: #F2A65A;
+        --slate: #5B6B78;
+        --paper: #FBFDFC;
+    }
+
+    .dash-wrap { font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+    .dash-hero {
+        background: linear-gradient(135deg, var(--ink) 0%, #163a5c 100%);
+        border-radius: 20px;
+        padding: 36px 40px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 28px;
+    }
+
+    .dash-hero h1 {
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        font-weight: 700;
+        font-size: 1.9rem;
+        margin-bottom: 4px;
+    }
+
+    .dash-hero p { color: #B9CBDA; margin-bottom: 0; font-size: 0.95rem; }
+
+    .pulse-line { width: 100%; height: 40px; margin-top: 22px; opacity: 0.85; }
+
+    .pulse-line path {
+        fill: none;
+        stroke: var(--amber);
+        stroke-width: 2.5px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+        animation: draw-pulse 2.4s ease-out forwards;
+    }
+
+    @@keyframes draw-pulse { to { stroke-dashoffset: 0; } }
+
+    @@media (prefers-reduced-motion: reduce) {
+        .pulse-line path { animation: none; stroke-dashoffset: 0; }
+    }
+
+    .stat-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .stat-card {
+        background: var(--paper);
+        border-radius: 14px;
+        padding: 20px;
+        border: 1px solid #E4ECEA;
+        box-shadow: 0 2px 10px rgba(15,42,67,0.04);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,42,67,0.08); }
+
+    .stat-card .label {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--slate);
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .stat-card .value {
+        font-family: 'IBM Plex Mono', 'Courier New', monospace;
+        font-size: 2.1rem;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1;
+    }
+
+    .stat-card .value.amber { color: var(--amber); }
+    .stat-card .value.teal { color: var(--teal); }
+
+    .section-title {
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 1.15rem;
+        margin: 8px 0 18px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .section-title::before {
+        content: "";
+        width: 6px;
+        height: 22px;
+        background: var(--teal);
+        border-radius: 3px;
+        display: inline-block;
+    }
+
+    .module-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 12px;
+    }
+
+    .module-card {
+        background: var(--paper);
+        border-radius: 16px;
+        border: 1px solid #E4ECEA;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(15,42,67,0.04);
+    }
+
+    .module-card .module-head {
+        background: var(--mint);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid #DCECEA;
+    }
+
+    .module-card .module-icon {
+        font-size: 1.4rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 1px 4px rgba(15,42,67,0.08);
+    }
+
+    .module-card .module-head h3 {
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0;
+    }
+
+    .module-card ul { list-style: none; margin: 0; padding: 10px 8px; }
+
+    .module-card ul li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: var(--slate);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: background 0.12s ease, color 0.12s ease;
+    }
+
+    .module-card ul li a:hover,
+    .module-card ul li a:focus-visible {
+        background: var(--mint);
+        color: var(--teal-dark);
+        outline: none;
+    }
+
+    .module-card ul li a:focus-visible { box-shadow: 0 0 0 2px var(--teal); }
+
+    .rec-badge {
+        font-family: 'IBM Plex Mono', 'Courier New', monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        background: var(--mint);
+        color: var(--teal-dark);
+        border-radius: 20px;
+        padding: 2px 10px;
+        min-width: 28px;
+        text-align: center;
+    }
+
+    .module-card ul li a:hover .rec-badge {
+        background: #fff;
+    }
+</style>
+
+<div class="dash-wrap">
+
+    <div class="dash-hero">
+        <h1>Welcome back, @User.Identity?.Name!</h1>
+        <p>@DateTime.Now.ToString("dddd, dd MMMM yyyy") — here's what's happening across the hospital today.</p>
+
+        <svg class="pulse-line" viewBox="0 0 600 40" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 20 H220 L235 5 L250 35 L265 20 H340 L355 10 L370 30 L385 20 H600" />
+        </svg>
+    </div>
+
+    <div class="stat-strip">
+        <div class="stat-card">
+            <div class="label">Total Patients</div>
+            <div class="value">@ViewBag.TotalPatients</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Doctors</div>
+            <div class="value teal">@ViewBag.TotalDoctors</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Appointments Today</div>
+            <div class="value amber">@ViewBag.TodayAppointments</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Currently Admitted</div>
+            <div class="value">@ViewBag.AdmittedPatients</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Available Beds</div>
+            <div class="value teal">@ViewBag.AvailableBeds</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Pending Bills</div>
+            <div class="value amber">@ViewBag.PendingBills</div>
+        </div>
+    </div>
+
+    <div class="section-title">Manage Your Hospital</div>
+
+    <div class="module-grid">
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">🩺</div>
+                <h3>Patient Management</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Patient" asp-action="Index">Patients <span class="rec-badge">@ViewBag.CountPatient</span></a></li>
+                <li><a asp-controller="Appointment" asp-action="Index">Appointments <span class="rec-badge">@ViewBag.CountAppointment</span></a></li>
+                <li><a asp-controller="OPD" asp-action="Index">OPD <span class="rec-badge">@ViewBag.CountOPD</span></a></li>
+                <li><a asp-controller="IPD" asp-action="Index">IPD <span class="rec-badge">@ViewBag.CountIPD</span></a></li>
+                <li><a asp-controller="EMR" asp-action="Index">EMR <span class="rec-badge">@ViewBag.CountEMR</span></a></li>
+                <li><a asp-controller="IR" asp-action="Index">Investigation Reports <span class="rec-badge">@ViewBag.CountIR</span></a></li>
+                <li><a asp-controller="Prescription" asp-action="Index">Prescriptions <span class="rec-badge">@ViewBag.CountPrescription</span></a></li>
+                <li><a asp-controller="DischargeSummary" asp-action="Index">Discharge Summary <span class="rec-badge">@ViewBag.CountDischargeSummary</span></a></li>
+            </ul>
+        </div>
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">🧪</div>
+                <h3>Clinical Services</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Laboratory" asp-action="Index">Laboratory <span class="rec-badge">@ViewBag.CountLaboratory</span></a></li>
+                <li><a asp-controller="Pharmacy" asp-action="Index">Pharmacy <span class="rec-badge">@ViewBag.CountPharmacy</span></a></li>
+                <li><a asp-controller="BloodBank" asp-action="Index">Blood Bank <span class="rec-badge">@ViewBag.CountBloodBank</span></a></li>
+                <li><a asp-controller="OperationTheatre" asp-action="Index">Operation Theatre <span class="rec-badge">@ViewBag.CountOperationTheatre</span></a></li>
+                <li><a asp-controller="Emergency" asp-action="Index">Emergency <span class="rec-badge">@ViewBag.CountEmergency</span></a></li>
+            </ul>
+        </div>
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">🧑‍⚕️</div>
+                <h3>Human Resources</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Doctor" asp-action="Index">Doctors <span class="rec-badge">@ViewBag.CountDoctor</span></a></li>
+                <li><a asp-controller="Nurse" asp-action="Index">Nurses <span class="rec-badge">@ViewBag.CountNurse</span></a></li>
+                <li><a asp-controller="Staff" asp-action="Index">Staff <span class="rec-badge">@ViewBag.CountStaff</span></a></li>
+                <li><a asp-controller="Attendance" asp-action="Index">Attendance <span class="rec-badge">@ViewBag.CountAttendance</span></a></li>
+                <li><a asp-controller="Shift" asp-action="Index">Shifts <span class="rec-badge">@ViewBag.CountShift</span></a></li>
+            </ul>
+        </div>
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">🏨</div>
+                <h3>Facility & Operations</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Ward" asp-action="Index">Wards <span class="rec-badge">@ViewBag.CountWard</span></a></li>
+                <li><a asp-controller="Room" asp-action="Index">Rooms <span class="rec-badge">@ViewBag.CountRoom</span></a></li>
+                <li><a asp-controller="Inventory" asp-action="Index">Inventory <span class="rec-badge">@ViewBag.CountInventory</span></a></li>
+                <li><a asp-controller="DietNutrition" asp-action="Index">Diet & Nutrition <span class="rec-badge">@ViewBag.CountDietNutrition</span></a></li>
+                <li><a asp-controller="Housekeeping" asp-action="Index">Housekeeping <span class="rec-badge">@ViewBag.CountHousekeeping</span></a></li>
+            </ul>
+        </div>
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">💳</div>
+                <h3>Finance</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Billing" asp-action="Index">Billing <span class="rec-badge">@ViewBag.CountBilling</span></a></li>
+                <li><a asp-controller="Payroll" asp-action="Index">Payroll <span class="rec-badge">@ViewBag.CountPayroll</span></a></li>
+                <li><a asp-controller="Insurance" asp-action="Index">Insurance <span class="rec-badge">@ViewBag.CountInsurance</span></a></li>
+            </ul>
+        </div>
+
+        <div class="module-card">
+            <div class="module-head">
+                <div class="module-icon">⚙️</div>
+                <h3>Administration</h3>
+            </div>
+            <ul>
+                <li><a asp-controller="Report" asp-action="Index">Reports <span class="rec-badge">@ViewBag.CountReport</span></a></li>
+                <li><a asp-controller="Notification" asp-action="Index">Notifications <span class="rec-badge">@ViewBag.CountNotification</span></a></li>
+                <li><a asp-controller="AuditLog" asp-action="Index">Audit Log <span class="rec-badge">@ViewBag.CountAuditLog</span></a></li>
+                <li><a asp-controller="AnalyticsDashboard" asp-action="Index">Analytics Dashboard <span class="rec-badge">@ViewBag.CountAnalyticsDashboard</span></a></li>
+                <li><a asp-controller="FeedbackComplaint" asp-action="Index">Feedback & Complaints <span class="rec-badge">@ViewBag.CountFeedbackComplaint</span></a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>

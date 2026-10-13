@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.Pharmacy
+
+@{
+    ViewData["Title"] = "Medicine Details";
+}
+
+<h2>Medicine Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Medicine Name</dt>
+        <dd class="col-sm-9">@Model.MedicineName</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+
+        <dt class="col-sm-3">Manufacturer</dt>
+        <dd class="col-sm-9">@Model.Manufacturer</dd>
+
+        <dt class="col-sm-3">Stock Quantity</dt>
+        <dd class="col-sm-9">@Model.StockQuantity</dd>
+
+        <dt class="col-sm-3">Unit Price</dt>
+        <dd class="col-sm-9">@Model.UnitPrice</dd>
+
+        <dt class="col-sm-3">Expiry Date</dt>
+        <dd class="col-sm-9">@Model.ExpiryDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Batch Number</dt>
+        <dd class="col-sm-9">@Model.BatchNumber</dd>
+
+        <dt class="col-sm-3">Reorder Level</dt>
+        <dd class="col-sm-9">@Model.ReorderLevel</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.MedicineId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

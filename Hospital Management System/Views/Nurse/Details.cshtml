@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.Nurse
+
+@{
+    ViewData["Title"] = "Nurse Details";
+}
+
+<h2>Nurse Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Full Name</dt>
+        <dd class="col-sm-9">@Model.FullName</dd>
+
+        <dt class="col-sm-3">Department</dt>
+        <dd class="col-sm-9">@Model.Department</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.PhoneNumber</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Ward ID</dt>
+        <dd class="col-sm-9">@Model.WardId</dd>
+
+        <dt class="col-sm-3">Shift Type</dt>
+        <dd class="col-sm-9">@Model.ShiftType</dd>
+
+        <dt class="col-sm-3">Joining Date</dt>
+        <dd class="col-sm-9">@Model.JoiningDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Active</dt>
+        <dd class="col-sm-9">@Model.IsActive</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.NurseId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

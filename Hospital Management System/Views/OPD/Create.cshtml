@@ -1,0 +1,60 @@
+﻿@model HospitalManagementSystem.Models.OPD
+
+@{
+    ViewData["Title"] = "Create OPD Visit";
+}
+
+<h2>Create OPD Visit</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+        <span asp-validation-for="PatientId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <input asp-for="DoctorId" class="form-control" />
+        <span asp-validation-for="DoctorId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="VisitDate"></label>
+        <input asp-for="VisitDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Symptoms"></label>
+        <textarea asp-for="Symptoms" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Diagnosis"></label>
+        <textarea asp-for="Diagnosis" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ConsultationFee"></label>
+        <input asp-for="ConsultationFee" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TokenNumber"></label>
+        <input asp-for="TokenNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Waiting">Waiting</option>
+            <option value="InProgress">InProgress</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

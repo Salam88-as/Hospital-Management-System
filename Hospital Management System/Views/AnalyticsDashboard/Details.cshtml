@@ -1,0 +1,32 @@
+﻿@model HospitalManagementSystem.Models.AnalyticsDashboard
+
+@{
+    ViewData["Title"] = "Analytics Details";
+}
+
+<h2>Analytics Metric Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Metric Name</dt>
+        <dd class="col-sm-9">@Model.MetricName</dd>
+
+        <dt class="col-sm-3">Metric Value</dt>
+        <dd class="col-sm-9">@Model.MetricValue</dd>
+
+        <dt class="col-sm-3">Metric Unit</dt>
+        <dd class="col-sm-9">@Model.MetricUnit</dd>
+
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Category</dd>
+
+        <dt class="col-sm-3">Recorded Date</dt>
+        <dd class="col-sm-9">@Model.RecordedDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Period</dt>
+        <dd class="col-sm-9">@Model.Period</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.AnalyticsId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

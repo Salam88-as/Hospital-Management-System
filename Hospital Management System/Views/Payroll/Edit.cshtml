@@ -1,0 +1,67 @@
+﻿@model HospitalManagementSystem.Models.Payroll
+
+@{
+    ViewData["Title"] = "Edit Payroll";
+}
+
+<h2>Edit Payroll</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="PayrollId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="EmployeeId"></label>
+        <input asp-for="EmployeeId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EmployeeType"></label>
+        <select asp-for="EmployeeType" class="form-control">
+            <option value="Doctor">Doctor</option>
+            <option value="Nurse">Nurse</option>
+            <option value="Staff">Staff</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PayMonth"></label>
+        <input asp-for="PayMonth" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BasicSalary"></label>
+        <input asp-for="BasicSalary" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Allowances"></label>
+        <input asp-for="Allowances" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Deductions"></label>
+        <input asp-for="Deductions" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bonus"></label>
+        <input asp-for="Bonus" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PaymentDate"></label>
+        <input asp-for="PaymentDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Pending">Pending</option>
+            <option value="Paid">Paid</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

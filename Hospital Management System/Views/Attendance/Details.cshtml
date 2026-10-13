@@ -1,0 +1,32 @@
+﻿@model HospitalManagementSystem.Models.Attendance
+
+@{
+    ViewData["Title"] = "Attendance Details";
+}
+
+<h2>Attendance Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Employee ID</dt>
+        <dd class="col-sm-9">@Model.EmployeeId</dd>
+
+        <dt class="col-sm-3">Employee Type</dt>
+        <dd class="col-sm-9">@Model.EmployeeType</dd>
+
+        <dt class="col-sm-3">Attendance Date</dt>
+        <dd class="col-sm-9">@Model.AttendanceDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Check In Time</dt>
+        <dd class="col-sm-9">@Model.CheckInTime</dd>
+
+        <dt class="col-sm-3">Check Out Time</dt>
+        <dd class="col-sm-9">@Model.CheckOutTime</dd>
+
+        <dt class="col-sm-3">Status</dt>
+        <dd class="col-sm-9">@Model.Status</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.AttendanceId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

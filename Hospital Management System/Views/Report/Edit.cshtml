@@ -1,0 +1,45 @@
+﻿@model HospitalManagementSystem.Models.Report
+
+@{
+    ViewData["Title"] = "Edit Report";
+}
+
+<h2>Edit Report</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ReportId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="ReportName"></label>
+        <input asp-for="ReportName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReportType"></label>
+        <select asp-for="ReportType" class="form-control">
+            <option value="Financial">Financial</option>
+            <option value="Patient">Patient</option>
+            <option value="Staff">Staff</option>
+            <option value="Inventory">Inventory</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GeneratedByUserId"></label>
+        <input asp-for="GeneratedByUserId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FilePath"></label>
+        <input asp-for="FilePath" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

@@ -1,0 +1,58 @@
+﻿@model HospitalManagementSystem.Models.IR
+
+@{
+    ViewData["Title"] = "Edit Investigation Report";
+}
+
+<h2>Edit Investigation Report</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IRId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <input asp-for="DoctorId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReportType"></label>
+        <input asp-for="ReportType" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReportDate"></label>
+        <input asp-for="ReportDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Findings"></label>
+        <textarea asp-for="Findings" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Impression"></label>
+        <textarea asp-for="Impression" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReportFilePath"></label>
+        <input asp-for="ReportFilePath" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

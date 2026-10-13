@@ -1,0 +1,61 @@
+﻿@model HospitalManagementSystem.Models.Insurance
+
+@{
+    ViewData["Title"] = "Create Insurance";
+}
+
+<h2>Create Insurance</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProviderName"></label>
+        <input asp-for="ProviderName" class="form-control" />
+        <span asp-validation-for="ProviderName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PolicyNumber"></label>
+        <input asp-for="PolicyNumber" class="form-control" />
+        <span asp-validation-for="PolicyNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CoverageAmount"></label>
+        <input asp-for="CoverageAmount" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PolicyStartDate"></label>
+        <input asp-for="PolicyStartDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PolicyEndDate"></label>
+        <input asp-for="PolicyEndDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClaimStatus"></label>
+        <select asp-for="ClaimStatus" class="form-control">
+            <option value="Not Claimed">Not Claimed</option>
+            <option value="In Process">In Process</option>
+            <option value="Approved">Approved</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ClaimedAmount"></label>
+        <input asp-for="ClaimedAmount" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

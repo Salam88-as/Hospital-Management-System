@@ -1,0 +1,58 @@
+﻿@model HospitalManagementSystem.Models.Emergency
+
+@{
+    ViewData["Title"] = "Create Emergency Case";
+}
+
+<h2>Create Emergency Case</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <input asp-for="DoctorId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ArrivalTime"></label>
+        <input asp-for="ArrivalTime" type="datetime-local" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TriageLevel"></label>
+        <select asp-for="TriageLevel" class="form-control">
+            <option value="Critical">Critical</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Non-Urgent">Non-Urgent</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ChiefComplaint"></label>
+        <textarea asp-for="ChiefComplaint" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ActionTaken"></label>
+        <textarea asp-for="ActionTaken" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="In Treatment">In Treatment</option>
+            <option value="Admitted">Admitted</option>
+            <option value="Discharged">Discharged</option>
+            <option value="Referred">Referred</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

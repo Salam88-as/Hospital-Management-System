@@ -1,0 +1,24 @@
+﻿@model HospitalManagementSystem.Models.AuditLog
+
+@{
+    ViewData["Title"] = "Delete Audit Log";
+}
+
+<h2>Delete Audit Log</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">User Name</dt>
+        <dd class="col-sm-9">@Model.UserName</dd>
+
+        <dt class="col-sm-3">Action Type</dt>
+        <dd class="col-sm-9">@Model.ActionType</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="AuditLogId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

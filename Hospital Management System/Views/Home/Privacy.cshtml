@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<style>
+    .privacy-wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+        .privacy-wrap h1 {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-weight: 700;
+            color: #0F2A43;
+            margin-bottom: 6px;
+        }
+
+        .privacy-wrap .updated {
+            color: #5B6B78;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .privacy-wrap section {
+            margin-bottom: 28px;
+        }
+
+        .privacy-wrap h2 {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0E7C7B;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .privacy-wrap h2::before {
+                content: "";
+                width: 5px;
+                height: 18px;
+                background: #0E7C7B;
+                border-radius: 3px;
+                display: inline-block;
+            }
+
+        .privacy-wrap p, .privacy-wrap li {
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .privacy-wrap ul {
+            padding-left: 20px;
+        }
+
+    .privacy-card {
+        background: #FBFDFC;
+        border: 1px solid #E4ECEA;
+        border-radius: 14px;
+        padding: 30px 35px;
+        box-shadow: 0 2px 10px rgba(15,42,67,0.04);
+    }
+</style>
+
+<div class="privacy-wrap">
+    <div class="privacy-card">
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: @DateTime.Now.ToString("dd MMMM yyyy")</p>
+
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                Hospital Management System ("we", "our", "the hospital") is committed to protecting the
+                privacy and confidentiality of our patients, doctors, staff, and all users of this system.
+                This Privacy Policy explains what information we collect, how it is used, and the measures
+                we take to keep it secure.
+            </p>
+        </section>
+
+        <section>
+            <h2>Information We Collect</h2>
+            <ul>
+                <li><strong>Patient Information:</strong> Full name, date of birth, gender, blood group, contact details, address, and emergency contact information.</li>
+                <li><strong>Medical Information:</strong> Medical history, diagnosis, prescriptions, lab and investigation reports, admission and discharge records, and treatment notes.</li>
+                <li><strong>Billing Information:</strong> Payment details, insurance information, and billing history.</li>
+                <li><strong>Staff Information:</strong> Doctor, nurse, and staff personal details, attendance, shift schedules, and payroll records.</li>
+                <li><strong>Account Information:</strong> Email address and encrypted password used for signing in to this system.</li>
+                <li><strong>System Usage:</strong> Login timestamps, IP address, and activity logs recorded for audit and security purposes.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How We Use Your Information</h2>
+            <ul>
+                <li>To provide accurate diagnosis, treatment, and continuity of patient care.</li>
+                <li>To manage appointments, admissions, discharges, and hospital operations efficiently.</li>
+                <li>To process billing, insurance claims, and payroll.</li>
+                <li>To maintain accurate medical records as required by healthcare regulations.</li>
+                <li>To improve hospital services through internal reports and analytics.</li>
+                <li>To maintain the security of our system through audit logs and access monitoring.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Security</h2>
+            <p>
+                All passwords are securely hashed and never stored in plain text. Access to patient medical
+                records is restricted based on user roles (Admin, Doctor, Nurse, Staff), ensuring that only
+                authorized personnel can view or modify sensitive information. All system activity is logged
+                through our Audit Log module to detect and prevent unauthorized access.
+            </p>
+        </section>
+
+        <section>
+            <h2>Data Sharing</h2>
+            <p>
+                We do not sell or share patient or staff data with third parties for marketing purposes.
+                Medical information may only be shared with relevant healthcare providers, insurance
+                companies (for claim processing), or legal authorities when required by law.
+            </p>
+        </section>
+
+        <section>
+            <h2>Patient Rights</h2>
+            <ul>
+                <li>You have the right to request access to your own medical records.</li>
+                <li>You have the right to request correction of inaccurate personal information.</li>
+                <li>You have the right to submit feedback or complaints through our Feedback & Complaints module.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Retention</h2>
+            <p>
+                Medical records, billing history, and audit logs are retained in accordance with applicable
+                healthcare record-keeping regulations to ensure continuity of care and legal compliance.
+            </p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>
+                If you have any questions or concerns regarding this Privacy Policy or how your data is
+                handled, please contact our administration through the Feedback & Complaints section of
+                this system.
+            </p>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model HospitalManagementSystem.Models.FeedbackComplaint
+
+@{
+    ViewData["Title"] = "Edit Feedback / Complaint";
+}
+
+<h2>Edit Feedback / Complaint</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="FeedbackId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <select asp-for="Type" class="form-control">
+            <option value="Feedback">Feedback</option>
+            <option value="Complaint">Complaint</option>
+            <option value="Suggestion">Suggestion</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Subject"></label>
+        <input asp-for="Subject" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" min="1" max="5" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Open">Open</option>
+            <option value="In Review">In Review</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Closed">Closed</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ResolutionNotes"></label>
+        <textarea asp-for="ResolutionNotes" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

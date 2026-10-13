@@ -1,0 +1,35 @@
+﻿@model HospitalManagementSystem.Models.Notification
+
+@{
+    ViewData["Title"] = "Notification Details";
+}
+
+<h2>Notification Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Recipient User ID</dt>
+        <dd class="col-sm-9">@Model.RecipientUserId</dd>
+
+        <dt class="col-sm-3">Recipient Type</dt>
+        <dd class="col-sm-9">@Model.RecipientType</dd>
+
+        <dt class="col-sm-3">Title</dt>
+        <dd class="col-sm-9">@Model.Title</dd>
+
+        <dt class="col-sm-3">Message</dt>
+        <dd class="col-sm-9">@Model.Message</dd>
+
+        <dt class="col-sm-3">Created On</dt>
+        <dd class="col-sm-9">@Model.CreatedOn.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Is Read</dt>
+        <dd class="col-sm-9">@Model.IsRead</dd>
+
+        <dt class="col-sm-3">Priority</dt>
+        <dd class="col-sm-9">@Model.Priority</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.NotificationId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

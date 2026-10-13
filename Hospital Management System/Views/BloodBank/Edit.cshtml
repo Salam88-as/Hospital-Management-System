@@ -1,0 +1,64 @@
+﻿@model HospitalManagementSystem.Models.BloodBank
+
+@{
+    ViewData["Title"] = "Edit Blood Unit";
+}
+
+<h2>Edit Blood Unit</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="BloodUnitId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="BloodGroup"></label>
+        <select asp-for="BloodGroup" class="form-control">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UnitsAvailable"></label>
+        <input asp-for="UnitsAvailable" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DonorName"></label>
+        <input asp-for="DonorName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DonorContact"></label>
+        <input asp-for="DonorContact" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CollectionDate"></label>
+        <input asp-for="CollectionDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ExpiryDate"></label>
+        <input asp-for="ExpiryDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Available">Available</option>
+            <option value="Reserved">Reserved</option>
+            <option value="Used">Used</option>
+            <option value="Expired">Expired</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

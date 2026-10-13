@@ -1,0 +1,32 @@
+﻿@model HospitalManagementSystem.Models.DietNutrition
+
+@{
+    ViewData["Title"] = "Diet Plan Details";
+}
+
+<h2>Diet Plan Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Meal Type</dt>
+        <dd class="col-sm-9">@Model.MealType</dd>
+
+        <dt class="col-sm-3">Diet Description</dt>
+        <dd class="col-sm-9">@Model.DietDescription</dd>
+
+        <dt class="col-sm-3">Dietary Restrictions</dt>
+        <dd class="col-sm-9">@Model.DietaryRestrictions</dd>
+
+        <dt class="col-sm-3">Effective Date</dt>
+        <dd class="col-sm-9">@Model.EffectiveDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Prescribed By</dt>
+        <dd class="col-sm-9">@Model.PrescribedBy</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.DietPlanId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

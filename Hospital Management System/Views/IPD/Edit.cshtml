@@ -1,0 +1,64 @@
+﻿@model HospitalManagementSystem.Models.IPD
+
+@{
+    ViewData["Title"] = "Edit IPD Admission";
+}
+
+<h2>Edit IPD Admission</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IPDId" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PatientId"></label>
+        <input asp-for="PatientId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DoctorId"></label>
+        <input asp-for="DoctorId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="WardId"></label>
+        <input asp-for="WardId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomId"></label>
+        <input asp-for="RoomId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdmissionDate"></label>
+        <input asp-for="AdmissionDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DischargeDate"></label>
+        <input asp-for="DischargeDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdmissionReason"></label>
+        <textarea asp-for="AdmissionReason" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Admitted">Admitted</option>
+            <option value="Discharged">Discharged</option>
+            <option value="Transferred">Transferred</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdvancePayment"></label>
+        <input asp-for="AdvancePayment" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

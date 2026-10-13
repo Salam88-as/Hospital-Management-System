@@ -1,0 +1,50 @@
+﻿@model HospitalManagementSystem.Models.Billing
+
+@{
+    ViewData["Title"] = "Bill Details";
+}
+
+<h2>Bill Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Bill Date</dt>
+        <dd class="col-sm-9">@Model.BillDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Consultation Charges</dt>
+        <dd class="col-sm-9">@Model.ConsultationCharges</dd>
+
+        <dt class="col-sm-3">Room Charges</dt>
+        <dd class="col-sm-9">@Model.RoomCharges</dd>
+
+        <dt class="col-sm-3">Medicine Charges</dt>
+        <dd class="col-sm-9">@Model.MedicineCharges</dd>
+
+        <dt class="col-sm-3">Lab Charges</dt>
+        <dd class="col-sm-9">@Model.LabCharges</dd>
+
+        <dt class="col-sm-3">Other Charges</dt>
+        <dd class="col-sm-9">@Model.OtherCharges</dd>
+
+        <dt class="col-sm-3">Total Amount</dt>
+        <dd class="col-sm-9">@Model.TotalAmount</dd>
+
+        <dt class="col-sm-3">Amount Paid</dt>
+        <dd class="col-sm-9">@Model.AmountPaid</dd>
+
+        <dt class="col-sm-3">Amount Due</dt>
+        <dd class="col-sm-9">@Model.AmountDue</dd>
+
+        <dt class="col-sm-3">Payment Status</dt>
+        <dd class="col-sm-9">@Model.PaymentStatus</dd>
+
+        <dt class="col-sm-3">Payment Method</dt>
+        <dd class="col-sm-9">@Model.PaymentMethod</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.BillId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

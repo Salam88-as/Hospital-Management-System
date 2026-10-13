@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.Prescription
+
+@{
+    ViewData["Title"] = "Prescription Details";
+}
+
+<h2>Prescription Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Doctor ID</dt>
+        <dd class="col-sm-9">@Model.DoctorId</dd>
+
+        <dt class="col-sm-3">Prescription Date</dt>
+        <dd class="col-sm-9">@Model.PrescriptionDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Medicine Name</dt>
+        <dd class="col-sm-9">@Model.MedicineName</dd>
+
+        <dt class="col-sm-3">Dosage</dt>
+        <dd class="col-sm-9">@Model.Dosage</dd>
+
+        <dt class="col-sm-3">Frequency</dt>
+        <dd class="col-sm-9">@Model.Frequency</dd>
+
+        <dt class="col-sm-3">Duration</dt>
+        <dd class="col-sm-9">@Model.Duration</dd>
+
+        <dt class="col-sm-3">Instructions</dt>
+        <dd class="col-sm-9">@Model.Instructions</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.PrescriptionId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

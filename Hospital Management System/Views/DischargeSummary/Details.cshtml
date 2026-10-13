@@ -1,0 +1,41 @@
+﻿@model HospitalManagementSystem.Models.DischargeSummary
+
+@{
+    ViewData["Title"] = "Discharge Summary Details";
+}
+
+<h2>Discharge Summary Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Doctor ID</dt>
+        <dd class="col-sm-9">@Model.DoctorId</dd>
+
+        <dt class="col-sm-3">IPD ID</dt>
+        <dd class="col-sm-9">@Model.IPDId</dd>
+
+        <dt class="col-sm-3">Discharge Date</dt>
+        <dd class="col-sm-9">@Model.DischargeDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Diagnosis Summary</dt>
+        <dd class="col-sm-9">@Model.DiagnosisSummary</dd>
+
+        <dt class="col-sm-3">Treatment Given</dt>
+        <dd class="col-sm-9">@Model.TreatmentGiven</dd>
+
+        <dt class="col-sm-3">Follow-Up Instructions</dt>
+        <dd class="col-sm-9">@Model.FollowUpInstructions</dd>
+
+        <dt class="col-sm-3">Discharge Medications</dt>
+        <dd class="col-sm-9">@Model.DischargeMedications</dd>
+
+        <dt class="col-sm-3">Condition on Discharge</dt>
+        <dd class="col-sm-9">@Model.ConditionOnDischarge</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.DischargeSummaryId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

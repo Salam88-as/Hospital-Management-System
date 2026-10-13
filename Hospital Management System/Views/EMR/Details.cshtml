@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.EMR
+
+@{
+    ViewData["Title"] = "EMR Details";
+}
+
+<h2>Medical Record Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Doctor ID</dt>
+        <dd class="col-sm-9">@Model.DoctorId</dd>
+
+        <dt class="col-sm-3">Record Date</dt>
+        <dd class="col-sm-9">@Model.RecordDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Medical History</dt>
+        <dd class="col-sm-9">@Model.MedicalHistory</dd>
+
+        <dt class="col-sm-3">Allergies</dt>
+        <dd class="col-sm-9">@Model.Allergies</dd>
+
+        <dt class="col-sm-3">Chronic Conditions</dt>
+        <dd class="col-sm-9">@Model.ChronicConditions</dd>
+
+        <dt class="col-sm-3">Notes</dt>
+        <dd class="col-sm-9">@Model.Notes</dd>
+
+        <dt class="col-sm-3">Attachment</dt>
+        <dd class="col-sm-9">@Model.AttachmentPath</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.EMRId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

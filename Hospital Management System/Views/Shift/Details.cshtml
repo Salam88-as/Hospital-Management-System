@@ -1,0 +1,35 @@
+﻿@model HospitalManagementSystem.Models.Shift
+
+@{
+    ViewData["Title"] = "Shift Details";
+}
+
+<h2>Shift Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Doctor ID</dt>
+        <dd class="col-sm-9">@Model.DoctorId</dd>
+
+        <dt class="col-sm-3">Employee ID</dt>
+        <dd class="col-sm-9">@Model.EmployeeId</dd>
+
+        <dt class="col-sm-3">Employee Type</dt>
+        <dd class="col-sm-9">@Model.EmployeeType</dd>
+
+        <dt class="col-sm-3">Shift Name</dt>
+        <dd class="col-sm-9">@Model.ShiftName</dd>
+
+        <dt class="col-sm-3">Start Time</dt>
+        <dd class="col-sm-9">@Model.StartTime</dd>
+
+        <dt class="col-sm-3">End Time</dt>
+        <dd class="col-sm-9">@Model.EndTime</dd>
+
+        <dt class="col-sm-3">Shift Date</dt>
+        <dd class="col-sm-9">@Model.ShiftDate.ToShortDateString()</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.ShiftId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

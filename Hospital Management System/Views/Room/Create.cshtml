@@ -1,0 +1,58 @@
+﻿@model HospitalManagementSystem.Models.Room
+
+@{
+    ViewData["Title"] = "Create Room";
+}
+
+<h2>Create Room</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="WardId"></label>
+        <input asp-for="WardId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomNumber"></label>
+        <input asp-for="RoomNumber" class="form-control" />
+        <span asp-validation-for="RoomNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="RoomType"></label>
+        <select asp-for="RoomType" class="form-control">
+            <option value="Private">Private</option>
+            <option value="Shared">Shared</option>
+            <option value="ICU">ICU</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BedCapacity"></label>
+        <input asp-for="BedCapacity" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="OccupiedBeds"></label>
+        <input asp-for="OccupiedBeds" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DailyCharges"></label>
+        <input asp-for="DailyCharges" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="Available">Available</option>
+            <option value="Occupied">Occupied</option>
+            <option value="Maintenance">Maintenance</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Save</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancel</a>
+</form>

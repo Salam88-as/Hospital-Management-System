@@ -1,0 +1,27 @@
+﻿@model HospitalManagementSystem.Models.Payroll
+
+@{
+    ViewData["Title"] = "Delete Payroll";
+}
+
+<h2>Delete Payroll</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Employee ID</dt>
+        <dd class="col-sm-9">@Model.EmployeeId</dd>
+
+        <dt class="col-sm-3">Pay Month</dt>
+        <dd class="col-sm-9">@Model.PayMonth</dd>
+
+        <dt class="col-sm-3">Net Salary</dt>
+        <dd class="col-sm-9">@Model.NetSalary</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="PayrollId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

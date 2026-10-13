@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.Insurance
+
+@{
+    ViewData["Title"] = "Insurance Details";
+}
+
+<h2>Insurance Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Patient ID</dt>
+        <dd class="col-sm-9">@Model.PatientId</dd>
+
+        <dt class="col-sm-3">Provider Name</dt>
+        <dd class="col-sm-9">@Model.ProviderName</dd>
+
+        <dt class="col-sm-3">Policy Number</dt>
+        <dd class="col-sm-9">@Model.PolicyNumber</dd>
+
+        <dt class="col-sm-3">Coverage Amount</dt>
+        <dd class="col-sm-9">@Model.CoverageAmount</dd>
+
+        <dt class="col-sm-3">Policy Start Date</dt>
+        <dd class="col-sm-9">@Model.PolicyStartDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Policy End Date</dt>
+        <dd class="col-sm-9">@Model.PolicyEndDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Claim Status</dt>
+        <dd class="col-sm-9">@Model.ClaimStatus</dd>
+
+        <dt class="col-sm-3">Claimed Amount</dt>
+        <dd class="col-sm-9">@Model.ClaimedAmount</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.InsuranceId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

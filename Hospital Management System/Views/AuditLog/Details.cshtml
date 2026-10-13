@@ -1,0 +1,38 @@
+﻿@model HospitalManagementSystem.Models.AuditLog
+
+@{
+    ViewData["Title"] = "Audit Log Details";
+}
+
+<h2>Audit Log Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">User ID</dt>
+        <dd class="col-sm-9">@Model.UserId</dd>
+
+        <dt class="col-sm-3">User Name</dt>
+        <dd class="col-sm-9">@Model.UserName</dd>
+
+        <dt class="col-sm-3">Action Type</dt>
+        <dd class="col-sm-9">@Model.ActionType</dd>
+
+        <dt class="col-sm-3">Entity Name</dt>
+        <dd class="col-sm-9">@Model.EntityName</dd>
+
+        <dt class="col-sm-3">Entity ID</dt>
+        <dd class="col-sm-9">@Model.EntityId</dd>
+
+        <dt class="col-sm-3">Details</dt>
+        <dd class="col-sm-9">@Model.Details</dd>
+
+        <dt class="col-sm-3">Timestamp</dt>
+        <dd class="col-sm-9">@Model.Timestamp</dd>
+
+        <dt class="col-sm-3">IP Address</dt>
+        <dd class="col-sm-9">@Model.IPAddress</dd>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.AuditLogId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

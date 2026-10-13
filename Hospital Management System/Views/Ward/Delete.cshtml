@@ -1,0 +1,24 @@
+﻿@model HospitalManagementSystem.Models.Ward
+
+@{
+    ViewData["Title"] = "Delete Ward";
+}
+
+<h2>Delete Ward</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Ward Name</dt>
+        <dd class="col-sm-9">@Model.WardName</dd>
+
+        <dt class="col-sm-3">Ward Type</dt>
+        <dd class="col-sm-9">@Model.WardType</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="WardId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
